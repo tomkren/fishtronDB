@@ -17,8 +17,11 @@ $dbh -> exec("SET CHARACTER SET utf8");
 header('Cache-Control: no-cache, must-revalidate');
 header('Content-Type: application/javascript; charset=utf-8');
 
-//TODO : předělat na bezpečnější skrz nějaký to PDO::prepare nebo jak to je
-// např bug: key #zobrazeni dela divnost
+//TODO : přidělat ověřování přes heslo,. 
+//  asi tak, že mi pošle sůl, ja udelam MD5( MD5(heslo+const_sůl) + sůl ), to pošlu na ověření
+// v db je MD5(heslo+const_sůl) .
+
+// bug: key #zobrazeni dela divnost
 
 $handlerID = array_key_exists('id',$_GET) ? $_GET['id'] : '';
 
